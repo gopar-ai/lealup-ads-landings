@@ -66,24 +66,24 @@
 
   /* ============ HEADER ============ */
   header.site{
-    position:sticky; top:0; z-index:100; padding:14px 0;
-    background:rgba(13,20,25,.94); backdrop-filter:blur(10px); box-shadow:0 1px 0 rgba(255,255,255,.06);
+    position:sticky; top:0; z-index:100; padding:22px 0;
+    background:linear-gradient(160deg,#000014,#07122c,#00001f); box-shadow:0 1px 0 rgba(255,255,255,.06);
     transition:padding .2s ease, box-shadow .2s ease;
   }
-  header.site.solid{padding:11px 0; box-shadow:0 4px 24px rgba(0,0,0,.35)}
+  header.site.solid{padding:16px 0; box-shadow:0 4px 24px rgba(0,0,0,.35)}
   header.site .row{display:flex; align-items:center; justify-content:space-between; gap:20px}
-  .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-weight:800; font-size:18px}
+  .logo{text-decoration:none; color:#fff; font-weight:800; font-size:21px; white-space:nowrap}
   .logo svg{width:30px;height:30px;flex-shrink:0}
-  nav.primary{display:flex; align-items:center; gap:28px}
-  nav.primary a{color:rgba(255,255,255,.68); text-decoration:none; font-size:14.5px; font-weight:500}
+  nav.primary{display:flex; align-items:center; gap:30px}
+  nav.primary a{color:hsl(240 9.6% 77.5%); text-decoration:none; font-size:15.5px; font-weight:500}
   .logo-up{color:var(--lima)}
   nav.primary a:hover{color:#fff}
-  .header-actions{display:flex; align-items:center; gap:14px}
+  .header-actions{display:flex; align-items:center; gap:16px}
   .menu-toggle{display:none; background:none; border:0; color:#fff; padding:6px}
 
   /* ============ HERO ============ */
   .hero{
-    background:radial-gradient(120% 90% at 15% -10%, rgba(38,192,140,.18), transparent 55%), var(--ink);
+    background:radial-gradient(120% 90% at 15% -10%, rgba(38,192,140,.18), transparent 55%), linear-gradient(160deg,#000014,#07122c,#00001f);
     padding:56px 0 96px; position:relative; overflow:hidden;
   }
   .hero::after{
@@ -227,7 +227,7 @@
   .stack-tags span{font-size:11.5px; font-weight:700; padding:5px 11px; border-radius:99px; background:rgba(38,192,140,.18); color:var(--lima)}
 
   /* ============ FINAL CTA ============ */
-  .final{background:var(--ink); padding:96px 0; position:relative; overflow:hidden; text-align:left}
+  .final{background:linear-gradient(160deg,#000014,#07122c,#00001f); padding:96px 0; position:relative; overflow:hidden; text-align:left}
   .final::before{content:""; position:absolute; top:-180px; right:-120px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle,rgba(38,192,140,.22),transparent 70%); filter:blur(10px)}
   .final-in{position:relative; z-index:1; max-width:620px}
   .final h2{font-size:clamp(28px,3.6vw,42px); color:#fff; line-height:1.15}
