@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM de Post-Venta con WhatsApp e IA | LealUp</title>
+<meta name="description" content="El CRM pensado para post-venta: une CRM y CSM, se conecta a WhatsApp Business y evita el churn con IA. Deja el CRM de ventas para gestionar clientes ya cerrados. Agenda una demo.">
+<meta name="keywords" content="crm postventa, crm y csm, crm customer success, crm csm, crm con whatsapp, crm aplicable al servicio postventa, gestión de clientes post venta, seguimiento de clientes b2b">
+<link rel="canonical" href="https://www.lealup.com/crm-posventa">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tu CRM de Post-Venta B2B, con WhatsApp Adentro | LealUp">
+<meta property="og:description" content="Une CRM y CSM en una sola plataforma. WhatsApp nativo, ficha 360 y alertas de churn con IA.">
+<meta property="og:url" content="https://www.lealup.com/crm-posventa">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --ink:#0d1419; --ink-soft:#16232a;
+    --lima:#26c08c; --lima-deep:#1a9c6f; --lima-ink:#07231b;
+    --azul:#1a6ef4; --azul-deep:#0f52ba;
+    --coral:#ff6b4a; --coral-deep:#e0512f;
+    --paper:#f5f8f7; --panel:#ffffff; --panel-2:#eef3f2;
+    --line:#dbe4e2; --line-soft:#e8eeed;
+    --muted:#5c6f70; --muted-2:#8a9c9c;
+    --accent:var(--lima); --accent-deep:var(--lima-deep); --accent-ink:var(--lima-ink);
+    --radius-sm:6px; --radius-md:12px; --radius-lg:20px;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+  }
+  .mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace; font-variant-numeric:tabular-nums}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{text-wrap:balance; margin:0; font-weight:700; letter-spacing:-0.01em}
+  p{margin:0}
+  button{font-family:inherit; cursor:pointer}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:"JetBrains Mono",monospace; font-size:12px; font-weight:500;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--accent);
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--accent);flex-shrink:0}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:9px;
+    padding:13px 24px; border-radius:var(--radius-sm); font-weight:600; font-size:15px;
+    text-decoration:none; border:1.5px solid transparent; transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn:focus-visible{outline:2px solid var(--azul); outline-offset:2px}
+  .btn-primary{background:var(--accent); color:var(--accent-ink)}
+  .btn-primary:hover{background:var(--accent-deep); transform:translateY(-1px)}
+  .btn-ghost-dark{background:transparent; color:#fff; border-color:rgba(255,255,255,.35)}
+  .btn-ghost-dark:hover{background:rgba(255,255,255,.08)}
+  .btn-ghost-light{background:transparent; color:var(--ink); border-color:var(--line)}
+  .btn-ghost-light:hover{border-color:var(--ink)}
+  .btn-lg{padding:15px 28px; font-size:16px}
+  .btn svg{width:17px;height:17px; transition:transform .15s ease}
+  .btn:hover svg{transform:translateX(3px)}
+
+  /* ============ HEADER ============ */
+  header.site{
+    position:sticky; top:0; z-index:100; padding:16px 0;
+    background:rgba(13,20,25,.0); transition:background .2s ease, padding .2s ease, box-shadow .2s ease;
+  }
+  header.site.solid{background:rgba(13,20,25,.92); backdrop-filter:blur(10px); padding:12px 0; box-shadow:0 1px 0 rgba(255,255,255,.06)}
+  header.site .row{display:flex; align-items:center; justify-content:space-between; gap:20px}
+  .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-weight:800; font-size:18px}
+  .logo svg{width:30px;height:30px;flex-shrink:0}
+  nav.primary{display:flex; align-items:center; gap:28px}
+  nav.primary a{color:rgba(255,255,255,.78); text-decoration:none; font-size:14.5px; font-weight:500}
+  nav.primary a:hover{color:#fff}
+  .header-actions{display:flex; align-items:center; gap:14px}
+  .header-actions .login{color:rgba(255,255,255,.78); text-decoration:none; font-size:14.5px; font-weight:500}
+  .header-actions .login:hover{color:#fff}
+  .menu-toggle{display:none; background:none; border:0; color:#fff; padding:6px}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:radial-gradient(120% 90% at 15% -10%, rgba(38,192,140,.18), transparent 55%), var(--ink);
+    padding:56px 0 96px; position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:56px 56px; mask-image:radial-gradient(ellipse 75% 60% at 20% 15%,#000,transparent);
+  }
+  .hero-grid{position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:52px}
+  .hero-copy{max-width:640px}
+  .hero-copy .eyebrow{margin-bottom:18px}
+  .hero h1{font-size:clamp(32px,4.4vw,52px); line-height:1.08; color:#fff}
+  .hero h1 mark{background:none; color:var(--accent); font-weight:800}
+  .hero-sub{margin-top:20px; font-size:17.5px; line-height:1.65; color:rgba(255,255,255,.76); max-width:560px}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; align-items:center}
+  .hero-secondary-link{color:rgba(255,255,255,.7); text-decoration:none; font-size:14.5px; font-weight:600; display:inline-flex; align-items:center; gap:6px; border-bottom:1px solid rgba(255,255,255,.3); padding-bottom:2px}
+  .hero-secondary-link:hover{color:#fff; border-color:#fff}
+  .hero-trust{display:flex; gap:22px; flex-wrap:wrap; margin-top:34px; font-size:13px; color:rgba(255,255,255,.55)}
+  .hero-trust span{display:inline-flex; align-items:center; gap:7px}
+  .hero-trust svg{width:15px;height:15px;color:var(--accent);flex-shrink:0}
+
+  /* ---- Product mockup ---- */
+  .mock-stage{position:relative; max-width:960px; margin:0 auto}
+  .mock{
+    background:var(--panel); border-radius:var(--radius-lg); overflow:hidden;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06);
+  }
+  .mock-top{display:flex; align-items:center; gap:16px; padding:14px 18px; border-bottom:1px solid var(--line)}
+  .mock-top .name{font-weight:700; font-size:14.5px}
+  .mock-top .tabs{display:flex; gap:4px; margin-left:8px; background:var(--panel-2); padding:3px; border-radius:8px}
+  .mock-top .tab{padding:6px 12px; font-size:12.5px; font-weight:600; border-radius:6px; color:var(--muted)}
+  .mock-top .tab.active{background:var(--panel); color:var(--ink); box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .mock-top .search{margin-left:auto; display:flex; align-items:center; gap:7px; background:var(--panel-2); border-radius:7px; padding:7px 12px; font-size:12.5px; color:var(--muted-2); min-width:150px}
+  .mock-top .search svg{width:13px;height:13px;flex-shrink:0}
+  .mock-body{display:grid; grid-template-columns:1fr 1.4fr; min-height:340px}
+  .mock-list{border-right:1px solid var(--line); display:flex; flex-direction:column}
+  .conv{display:flex; gap:11px; align-items:flex-start; padding:13px 16px; border-bottom:1px solid var(--line-soft); position:relative}
+  .conv.active{background:var(--panel-2)}
+  .conv.active::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+  .chip{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0}
+  .conv .body{flex:1; min-width:0}
+  .conv .top-row{display:flex; justify-content:space-between; gap:8px}
+  .conv .top-row strong{font-size:13.5px; font-weight:700}
+  .conv .top-row time{font-size:11px; color:var(--muted-2); font-family:"JetBrains Mono",monospace; flex-shrink:0}
+  .conv .snippet{display:flex; align-items:center; gap:5px; font-size:12.5px; color:var(--muted); margin-top:2px}
+  .conv .snippet svg{width:12px;height:12px;color:var(--lima);flex-shrink:0}
+  .conv .snippet span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .conv .stage-tag{margin-top:6px; display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:2px 8px; border-radius:99px; background:var(--panel-2); color:var(--muted)}
+  .conv .unread{width:18px;height:18px;border-radius:50%;background:var(--coral);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center;flex-shrink:0}
+
+  .mock-detail{padding:18px 20px; display:flex; flex-direction:column; gap:16px}
+  .detail-head{display:flex; align-items:center; gap:12px}
+  .detail-head .chip{width:40px;height:40px;font-size:14px}
+  .detail-head h4{font-size:15px; font-weight:700}
+  .detail-head span{display:block; font-size:12px; color:var(--muted)}
+  .health-badge{margin-left:auto; font-size:11px; font-weight:700; padding:5px 11px; border-radius:99px; background:rgba(38,192,140,.14); color:var(--lima-deep); white-space:nowrap}
+  .health-badge.risk{background:rgba(255,107,74,.14); color:var(--coral-deep)}
+
+  .stage-track{display:flex; align-items:center; gap:0}
+  .stage-track .step{flex:1; display:flex; flex-direction:column; align-items:flex-start; gap:6px; position:relative}
+  .stage-track .step .dot{width:9px;height:9px;border-radius:50%;background:var(--line); border:2px solid var(--line)}
+  .stage-track .step.done .dot{background:var(--accent); border-color:var(--accent)}
+  .stage-track .step.current .dot{background:#fff; border-color:var(--accent); box-shadow:0 0 0 3px rgba(38,192,140,.25)}
+  .stage-track .step::after{content:""; position:absolute; top:4px; left:16px; right:-16px; height:2px; background:var(--line)}
+  .stage-track .step.done::after{background:var(--accent)}
+  .stage-track .step:last-child::after{display:none}
+  .stage-track .step label{font-size:10.5px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.03em}
+  .stage-track .step.current label{color:var(--ink)}
+
+  .kv-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden}
+  .kv{background:var(--panel); padding:10px 12px}
+  .kv label{display:block; font-size:10.5px; color:var(--muted-2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px}
+  .kv strong{font-size:14.5px; font-family:"JetBrains Mono",monospace; font-weight:600}
+
+  .activity{display:flex; flex-direction:column; gap:9px}
+  .activity li{list-style:none; display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:var(--ink)}
+  .activity li em{font-style:normal; display:block; font-size:11px; color:var(--muted-2); margin-top:1px}
+  .activity li .dot2{width:6px;height:6px;border-radius:50%;background:var(--muted-2); margin-top:5px; flex-shrink:0}
+  .activity li.alert{padding:8px 10px; margin:-8px -10px 0; background:rgba(255,107,74,.08); border-radius:8px}
+  .activity li.alert .dot2{background:var(--coral)}
+  .activity li.alert strong{color:var(--coral-deep)}
+
+  .float-badge{
+    position:absolute; z-index:2; background:var(--panel); border-radius:var(--radius-md);
+    padding:12px 16px; display:flex; align-items:center; gap:11px; box-shadow:0 20px 50px -18px rgba(0,0,0,.5);
+    font-size:12.5px; max-width:220px;
+  }
+  .float-badge .ico{width:34px;height:34px;border-radius:9px; display:grid; place-items:center; flex-shrink:0}
+  .float-badge .ico svg{width:17px;height:17px}
+  .float-badge strong{display:block; font-size:13px; font-weight:700; line-height:1.25}
+  .float-badge span{color:var(--muted); font-size:11.5px}
+  .fb-1{top:-26px; right:24px; animation:floaty 6.5s ease-in-out infinite}
+  .fb-2{bottom:-24px; left:-14px; animation:floaty 7.5s ease-in-out infinite 1s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @media(prefers-reduced-motion:reduce){.fb-1,.fb-2{animation:none}}
+
+  /* ============ MARQUEE / SECTOR STRIP ============ */
+  .sector{padding:56px 0; background:var(--panel); border-bottom:1px solid var(--line)}
+  .sector-head{text-align:center; font-size:13px; color:var(--muted); font-weight:600; margin-bottom:26px}
+  .marquee{overflow:hidden; mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .marquee-track{display:flex; gap:0; width:max-content; animation:scroll 32s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .marquee-item{display:flex; align-items:center; gap:10px; padding:0 36px; font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted-2); white-space:nowrap; border-right:1px solid var(--line)}
+  .marquee-item svg{width:8px;height:8px;color:var(--accent);flex-shrink:0}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none; flex-wrap:wrap; width:auto; justify-content:center}}
+
+  /* ============ SECTION SHELL ============ */
+  .section{padding:88px 0}
+  .section-head{max-width:640px; margin-bottom:48px}
+  .section-head h2{font-size:clamp(26px,3vw,36px); line-height:1.18}
+  .section-head p{margin-top:14px; font-size:16.5px; color:var(--muted); line-height:1.65}
+
+  /* ============ FEATURES ============ */
+  .features{background:var(--paper)}
+  .feat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden}
+  article.feat{background:var(--panel); padding:32px 28px}
+  article.feat .ico{width:44px;height:44px;border-radius:10px; background:rgba(38,192,140,.12); color:var(--lima-deep); display:grid; place-items:center; margin-bottom:20px}
+  article.feat .ico svg{width:22px;height:22px}
+  article.feat h3{font-size:17.5px; margin-bottom:9px}
+  article.feat p{font-size:14.5px; color:var(--muted); line-height:1.6}
+
+  /* ============ COMPARISON ============ */
+  .comparison{background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .comp-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start}
+  .comp-list{list-style:none; margin:28px 0 0; padding:0; display:flex; flex-direction:column; gap:16px}
+  .comp-list li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.5}
+  .comp-list li svg{width:19px;height:19px; color:var(--lima-deep); flex-shrink:0; margin-top:2px}
+
+  .stack-diagram{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); padding:28px}
+  .stack-old{display:flex; flex-direction:column; gap:10px}
+  .stack-card{display:flex; align-items:center; justify-content:space-between; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-sm); padding:12px 15px}
+  .stack-card .lbl{font-size:13.5px; font-weight:600}
+  .stack-card .cost{font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--muted); font-weight:600}
+  .plus-row{display:flex; align-items:center; justify-content:center; gap:10px; margin:8px 0; color:var(--muted-2); font-size:13px; font-weight:700}
+  .stack-arrow{display:flex; justify-content:center; margin:16px 0}
+  .stack-arrow svg{width:22px;height:22px; color:var(--muted-2); transform:rotate(90deg)}
+  .stack-new{background:var(--ink); border-radius:var(--radius-md); padding:20px; text-align:center}
+  .stack-new .lbl{color:rgba(255,255,255,.65); font-size:12px; text-transform:uppercase; letter-spacing:.06em; font-weight:700}
+  .stack-new .name{color:#fff; font-size:20px; font-weight:800; margin-top:6px}
+  .stack-tags{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:14px}
+  .stack-tags span{font-size:11.5px; font-weight:700; padding:5px 11px; border-radius:99px; background:rgba(38,192,140,.18); color:var(--lima)}
+
+  /* ============ FINAL CTA ============ */
+  .final{background:var(--ink); padding:96px 0; position:relative; overflow:hidden; text-align:left}
+  .final::before{content:""; position:absolute; top:-180px; right:-120px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle,rgba(38,192,140,.22),transparent 70%); filter:blur(10px)}
+  .final-in{position:relative; z-index:1; max-width:620px}
+  .final h2{font-size:clamp(28px,3.6vw,42px); color:#fff; line-height:1.15}
+  .final p{margin-top:16px; font-size:17px; color:rgba(255,255,255,.75); line-height:1.6}
+  .final-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-top:30px; align-items:center}
+  .final-note{margin-top:22px; font-size:13px; color:rgba(255,255,255,.5)}
+
+  /* ============ FOOTER ============ */
+  footer.site{background:var(--ink-soft); padding:56px 0 28px; color:rgba(255,255,255,.6)}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-brand .logo{color:#fff; margin-bottom:12px}
+  .foot-brand p{font-size:13.5px; max-width:260px; line-height:1.6}
+  .foot-col h5{color:#fff; font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; font-weight:700; margin-bottom:14px}
+  .foot-col a{display:block; font-size:13.5px; text-decoration:none; color:rgba(255,255,255,.6); margin-bottom:10px}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:22px; font-size:12.5px; flex-wrap:wrap; gap:10px}
+
+  /* ============ WHATSAPP FLOATING BUTTON ============ */
+  .wa-float{
+    position:fixed; right:22px; bottom:22px; z-index:200;
+    width:56px; height:56px; border-radius:50%; background:var(--lima); color:var(--lima-ink);
+    display:grid; place-items:center; text-decoration:none; box-shadow:0 14px 30px -8px rgba(38,192,140,.55);
+    transition:transform .15s ease;
+  }
+  .wa-float:hover{transform:scale(1.06)}
+  .wa-float svg{width:26px;height:26px}
+
+  /* ============ RESPONSIVE ============ */
+  @media(max-width:980px){
+    nav.primary,.header-actions .login{display:none}
+    .menu-toggle{display:block}
+    .mock-body{grid-template-columns:1fr}
+    .mock-list{border-right:0; border-bottom:1px solid var(--line); max-height:220px; overflow:hidden}
+    .float-badge{display:none}
+    .feat-grid{grid-template-columns:1fr}
+    .comp-grid{grid-template-columns:1fr; gap:36px}
+    .foot-grid{grid-template-columns:1fr 1fr; gap:28px 20px}
+  }
+  @media(max-width:640px){
+    .section{padding:60px 0}
+    .hero{padding:44px 0 64px}
+    .kv-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .hero-ctas .btn{width:100%}
+    .wrap{padding:0 20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="siteHeader">
+  <div class="wrap row">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#26C08C"/><path d="M9 19.5l5-6.2 4.2 4 6.8-8.6" stroke="#07231B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      LealUp
+    </a>
+    <nav class="primary" aria-label="Navegación principal">
+      <a href="#producto">Producto</a>
+      <a href="#comparativa">Por qué LealUp</a>
+      <a href="#logos">Para quién es</a>
+      <a href="https://docs.lealup.com">Recursos</a>
+    </nav>
+    <div class="header-actions">
+      <a class="login" href="#login">Iniciar sesión</a>
+      <a class="btn btn-primary" href="#demo">Agendar Demo</a>
+    </div>
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">CRM · Post-venta B2B</span>
+        <h1 id="hero-h1">Tu CRM de Post-Venta B2B, con <mark>WhatsApp</mark> Adentro</h1>
+        <p class="hero-sub">Deja de usar tu CRM de ventas para gestionar clientes que ya cerraron. LealUp une CRM y CSM en una sola plataforma: WhatsApp Business nativo, ficha 360 de cada cuenta y alertas de churn calculadas con IA.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg" href="#demo">Agendar Demo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="hero-secondary-link" href="#producto">Ver cómo funciona el CRM →</a>
+        </div>
+        <div class="hero-trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Sin tarjeta de crédito</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>API oficial de WhatsApp</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Demo en 20 minutos</span>
+        </div>
+      </div>
+
+      <div class="mock-stage">
+        <div class="mock">
+          <div class="mock-top">
+            <span class="name">Postventa</span>
+            <div class="tabs">
+              <span class="tab active">Conversaciones</span>
+              <span class="tab">Cuentas</span>
+            </div>
+            <div class="search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              Buscar cuenta…
+            </div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-list">
+              <div class="conv active">
+                <span class="chip">DR</span>
+                <div class="body">
+                  <div class="top-row"><strong>Distribuidora Rioja</strong><time>09:41</time></div>
+                  <div class="snippet"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.52 3.66 1.42 5.18L2 22l4.94-1.38A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg><span>"¿Nos pueden reenviar la factura?"</span></div>
+                  <span class="stage-tag">Renovación</span>
+                </div>
+              </div>
+              <div class="conv">
+                <span class="chip">CM</span>
+                <div class="body">
+                  <div class="top-row"><strong>Corporación Maule</strong><time>ayer</time></div>
+                  <div class="snippet"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.52 3.66 1.42 5.18L2 22l4.94-1.38A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg><span>Sin respuesta hace 12 días</span></div>
+                  <span class="stage-tag">Adopción</span>
+                </div>
+                <span class="unread">1</span>
+              </div>
+              <div class="conv">
+                <span class="chip">GF</span>
+                <div class="body">
+                  <div class="top-row"><strong>Grupo Ferretero SA</strong><time>lun</time></div>
+                  <div class="snippet"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.52 3.66 1.42 5.18L2 22l4.94-1.38A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg><span>"Perfecto, gracias por el soporte"</span></div>
+                  <span class="stage-tag">Expansión</span>
+                </div>
+              </div>
+            </div>
+            <div class="mock-detail">
+              <div class="detail-head">
+                <span class="chip">CM</span>
+                <div>
+                  <h4>Corporación Maule</h4>
+                  <span>Contrato desde ene. 2026 · Owner: Fabiola R.</span>
+                </div>
+                <span class="health-badge risk">En riesgo</span>
+              </div>
+              <div class="stage-track">
+                <div class="step done"><span class="dot"></span><label>Onboarding</label></div>
+                <div class="step current"><span class="dot"></span><label>Adopción</label></div>
+                <div class="step"><span class="dot"></span><label>Renovación</label></div>
+                <div class="step"><span class="dot"></span><label>Expansión</label></div>
+              </div>
+              <div class="kv-grid">
+                <div class="kv"><label>Plan</label><strong>Pro · 40 usr</strong></div>
+                <div class="kv"><label>MRR</label><strong>$1.240.000</strong></div>
+                <div class="kv"><label>Renueva</label><strong>14 nov</strong></div>
+              </div>
+              <ul class="activity">
+                <li><span class="dot2"></span><div>Onboarding completado<em>hace 38 días</em></div></li>
+                <li><span class="dot2"></span><div>Ticket de soporte cerrado<em>hace 19 días</em></div></li>
+                <li class="alert"><span class="dot2"></span><div><strong>Sin actividad en WhatsApp hace 12 días</strong><em>Alerta de churn generada por IA</em></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <aside class="float-badge fb-1">
+          <span class="ico" style="background:rgba(38,192,140,.14); color:#1a9c6f">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </span>
+          <div><strong>WhatsApp Business API</strong><span>conectado y activo</span></div>
+        </aside>
+        <aside class="float-badge fb-2">
+          <span class="ico" style="background:rgba(255,107,74,.14); color:#e0512f">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9L2.6 18a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+          </span>
+          <div><strong>1 cuenta en riesgo</strong><span>esta semana</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTOR STRIP ============ -->
+  <section class="sector" id="logos" aria-labelledby="sector-h">
+    <div class="wrap">
+      <p class="sector-head" id="sector-h">Hecho para equipos B2B que ya cerraron la venta y ahora sostienen la relación</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="marquee-item"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Distribución B2B</span>
+          <span class="marquee-item"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Software / SaaS</span>
+          <span class="marquee-item"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Manufactura</span>
+          <span class="marquee-item"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Servicios profesionales</span>
+          <span class="marquee-item"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Logística</span>
+          <span class="marquee-item"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Retail B2B</span>
+          <!-- duplicado para loop -->
+          <span class="marquee-item" aria-hidden="true"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Distribución B2B</span>
+          <span class="marquee-item" aria-hidden="true"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Software / SaaS</span>
+          <span class="marquee-item" aria-hidden="true"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Manufactura</span>
+          <span class="marquee-item" aria-hidden="true"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Servicios profesionales</span>
+          <span class="marquee-item" aria-hidden="true"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Logística</span>
+          <span class="marquee-item" aria-hidden="true"><svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="currentColor"/></svg>Retail B2B</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="section features" id="producto" aria-labelledby="feat-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="feat-h">El seguimiento de post-venta, sin salir de una pestaña</h2>
+        <p>Nada de exportar contactos a WhatsApp Web ni de anotar el estado de la cuenta en una planilla aparte. Todo vive donde tu equipo ya trabaja.</p>
+      </div>
+      <div class="feat-grid">
+        <article class="feat">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+          <h3>Ficha 360° por cliente</h3>
+          <p>Historial comercial, conversaciones de WhatsApp, tickets y salud de la cuenta en una sola pantalla — sin pedirle nada al equipo de ventas.</p>
+        </article>
+        <article class="feat">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span>
+          <h3>WhatsApp nativo, sin apps externas</h3>
+          <p>Conecta el número oficial de WhatsApp Business y responde a tus clientes de post-venta directamente desde el CRM.</p>
+        </article>
+        <article class="feat">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.3 2.3 7.3-6.3-4.6L5.7 21l2.3-7.3-6-4.3h7.6z"/></svg></span>
+          <h3>Alertas de churn con IA</h3>
+          <p>LealUp detecta señales de riesgo — silencio, baja de uso, tickets sin resolver — y avisa a tu equipo antes de perder la cuenta.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARISON / CONSOLIDACIÓN ============ -->
+  <section class="section comparison" id="comparativa" aria-labelledby="comp-h">
+    <div class="wrap comp-grid">
+      <div>
+        <h2 id="comp-h">¿Por qué pagar un CRM + una plataforma de CS, si LealUp te da las dos?</h2>
+        <ul class="comp-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Un solo login para ventas y post-venta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Cero migraciones a mitad de camino: el cliente nace y se gestiona en la misma plataforma</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>El equipo de CS ve el historial comercial completo sin pedírselo a ventas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Te ahorras el costo de una segunda herramienta de Customer Success</li>
+        </ul>
+      </div>
+      <div class="stack-diagram">
+        <div class="stack-old">
+          <div class="stack-card"><span class="lbl">CRM tradicional</span><span class="cost mono">+ licencia mensual</span></div>
+          <div class="plus-row">+</div>
+          <div class="stack-card"><span class="lbl">Plataforma de CS aparte</span><span class="cost mono">+ licencia mensual</span></div>
+        </div>
+        <div class="stack-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="stack-new">
+          <span class="lbl">Una sola plataforma</span>
+          <div class="name">LealUp</div>
+          <div class="stack-tags"><span>CRM</span><span>WhatsApp</span><span>CSM</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="final" id="demo" aria-labelledby="final-h">
+    <div class="wrap final-in">
+      <span class="eyebrow" style="color:var(--lima)">Demo en vivo</span>
+      <h2 id="final-h" style="margin-top:14px">Deja de perder clientes por falta de seguimiento</h2>
+      <p>Agenda una demo de 20 minutos. Sin tarjeta de crédito, sin instalaciones: te mostramos LealUp funcionando con tus propios casos de post-venta.</p>
+      <div class="final-ctas">
+        <a class="btn btn-primary btn-lg" href="#agendar">Agendar Demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost-dark btn-lg" href="#whatsapp-cta">Escríbenos por WhatsApp</a>
+      </div>
+      <p class="final-note">O usa el botón de WhatsApp en la esquina inferior — te responde un humano, no un bot.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <svg viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#26C08C"/><path d="M9 19.5l5-6.2 4.2 4 6.8-8.6" stroke="#07231B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          LealUp
+        </a>
+        <p>Plataforma de Customer Success para B2B en LATAM: CRM, WhatsApp e IA en un solo lugar.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Producto</h5>
+        <a href="/crm-posventa">CRM de post-venta</a>
+        <a href="/software-customer-success">Software de Customer Success</a>
+        <a href="/reduccion-churn">Retención y churn</a>
+      </div>
+      <div class="foot-col">
+        <h5>Recursos</h5>
+        <a href="https://docs.lealup.com">Documentación</a>
+        <a href="https://blog.lealup.com">Blog</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="/privacidad">Privacidad</a>
+        <a href="/terminos">Términos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LealUp · Customer Success B2B</span>
+      <span>Hecho en LATAM</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#whatsapp-cta" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.52 3.66 1.42 5.18L2 22l4.94-1.38A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18a7.9 7.9 0 01-4.03-1.1l-.29-.17-3 .84.8-2.94-.19-.3A7.93 7.93 0 1120 12a8 8 0 01-8 8z"/></svg>
+</a>
+
+<script>
+  (function(){
+    var header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', function(){
+      header.classList.toggle('solid', window.scrollY > 8);
+    }, {passive:true});
+  })();
+</script>
+
+</body>
+</html>
