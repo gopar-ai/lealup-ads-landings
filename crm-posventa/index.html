@@ -66,19 +66,18 @@
 
   /* ============ HEADER ============ */
   header.site{
-    position:sticky; top:0; z-index:100; padding:16px 0;
-    background:rgba(13,20,25,.0); transition:background .2s ease, padding .2s ease, box-shadow .2s ease;
+    position:sticky; top:0; z-index:100; padding:14px 0;
+    background:rgba(13,20,25,.94); backdrop-filter:blur(10px); box-shadow:0 1px 0 rgba(255,255,255,.06);
+    transition:padding .2s ease, box-shadow .2s ease;
   }
-  header.site.solid{background:rgba(13,20,25,.92); backdrop-filter:blur(10px); padding:12px 0; box-shadow:0 1px 0 rgba(255,255,255,.06)}
+  header.site.solid{padding:11px 0; box-shadow:0 4px 24px rgba(0,0,0,.35)}
   header.site .row{display:flex; align-items:center; justify-content:space-between; gap:20px}
   .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-weight:800; font-size:18px}
   .logo svg{width:30px;height:30px;flex-shrink:0}
   nav.primary{display:flex; align-items:center; gap:28px}
-  nav.primary a{color:rgba(255,255,255,.78); text-decoration:none; font-size:14.5px; font-weight:500}
+  nav.primary a{color:#8fb8ff; text-decoration:none; font-size:14.5px; font-weight:500}
   nav.primary a:hover{color:#fff}
   .header-actions{display:flex; align-items:center; gap:14px}
-  .header-actions .login{color:rgba(255,255,255,.78); text-decoration:none; font-size:14.5px; font-weight:500}
-  .header-actions .login:hover{color:#fff}
   .menu-toggle{display:none; background:none; border:0; color:#fff; padding:6px}
 
   /* ============ HERO ============ */
@@ -257,7 +256,7 @@
 
   /* ============ RESPONSIVE ============ */
   @media(max-width:980px){
-    nav.primary,.header-actions .login{display:none}
+    nav.primary{display:none}
     .menu-toggle{display:block}
     .mock-body{grid-template-columns:1fr}
     .mock-list{border-right:0; border-bottom:1px solid var(--line); max-height:220px; overflow:hidden}
@@ -291,7 +290,6 @@
       <a href="https://docs.lealup.com">Recursos</a>
     </nav>
     <div class="header-actions">
-      <a class="login" href="#login">Iniciar sesión</a>
       <a class="btn btn-primary" href="#demo">Agendar Demo</a>
     </div>
     <button class="menu-toggle" aria-label="Abrir menú">
