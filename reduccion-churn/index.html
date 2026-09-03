@@ -58,7 +58,8 @@
   .logo{display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-weight:800; font-size:18px}
   .logo svg{width:30px;height:30px;flex-shrink:0}
   nav.primary{display:flex; align-items:center; gap:28px}
-  nav.primary a{color:#8fb8ff; text-decoration:none; font-size:14.5px; font-weight:500}
+  nav.primary a{color:rgba(255,255,255,.68); text-decoration:none; font-size:14.5px; font-weight:500}
+  .logo-up{color:var(--lima)}
   nav.primary a:hover{color:#fff}
   .header-actions{display:flex; align-items:center; gap:14px}
   .menu-toggle{display:none; background:none; border:0; color:#fff; padding:6px}
@@ -232,10 +233,7 @@
 
 <header class="site" id="siteHeader">
   <div class="wrap row">
-    <a class="logo" href="#top">
-      <svg viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#26C08C"/><path d="M9 19.5l5-6.2 4.2 4 6.8-8.6" stroke="#07231B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      LealUp
-    </a>
+    <a class="logo" href="#top">Leal<span class="logo-up">Up</span></a>
     <nav class="primary" aria-label="Navegación principal">
       <a href="#producto">Producto</a>
       <a href="#comparativa">Por qué LealUp</a>
@@ -426,10 +424,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="#top">
-          <svg viewBox="0 0 34 34" fill="none"><rect width="34" height="34" rx="9" fill="#26C08C"/><path d="M9 19.5l5-6.2 4.2 4 6.8-8.6" stroke="#07231B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          LealUp
-        </a>
+        <a class="logo" href="#top">Leal<span class="logo-up">Up</span></a>
         <p>Plataforma de Customer Success para B2B en LATAM: CRM, predicción de churn e IA en un solo lugar.</p>
       </div>
       <div class="foot-col">
