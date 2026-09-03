@@ -254,6 +254,27 @@
   .wa-float:hover{transform:scale(1.06)}
   .wa-float svg{width:26px;height:26px}
 
+  /* ============ DEMO MODAL ============ */
+  .demo-modal-overlay{position:fixed; inset:0; z-index:300; background:rgba(13,20,25,.72); display:flex; align-items:center; justify-content:center; padding:20px; opacity:0; pointer-events:none; transition:opacity .18s ease}
+  .demo-modal-overlay.is-open{opacity:1; pointer-events:auto}
+  .demo-modal{background:var(--panel); border-radius:var(--radius-lg); max-width:440px; width:100%; padding:30px 28px; position:relative; box-shadow:0 40px 90px -20px rgba(0,0,0,.5); max-height:90vh; overflow:auto}
+  .demo-modal h3{font-size:20px; margin-bottom:6px}
+  .demo-modal .sub{font-size:13.5px; color:var(--muted); margin-bottom:20px; line-height:1.5}
+  .demo-modal-close{position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:50%; border:0; background:var(--panel-2); color:var(--muted); display:grid; place-items:center; cursor:pointer; font-size:15px}
+  .demo-field{display:flex; flex-direction:column; gap:5px; margin-bottom:14px}
+  .demo-field label{font-size:12px; font-weight:600; color:var(--ink)}
+  .demo-field input,.demo-field textarea{border:1.5px solid var(--line); border-radius:8px; padding:10px 12px; font:inherit; font-size:14px; color:var(--ink); background:var(--panel)}
+  .demo-field input:focus,.demo-field textarea:focus{outline:none; border-color:var(--accent)}
+  .demo-field textarea{resize:vertical; min-height:70px}
+  .demo-hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
+  .demo-submit{width:100%; justify-content:center; margin-top:4px}
+  .demo-msg{font-size:13px; margin-top:12px; display:none; line-height:1.5}
+  .demo-msg.is-error{color:var(--coral-deep); display:block}
+  .demo-success{display:none; text-align:center; padding:12px 0}
+  .demo-success.is-open{display:block}
+  .demo-success .ico{width:48px; height:48px; border-radius:50%; background:rgba(38,192,140,.14); color:var(--lima-deep); display:grid; place-items:center; margin:0 auto 14px}
+  .demo-success .ico svg{width:24px; height:24px}
+
   /* ============ RESPONSIVE ============ */
   @media(max-width:980px){
     nav.primary{display:none}
@@ -290,7 +311,7 @@
       <a href="https://docs.lealup.com">Recursos</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary" href="#demo">Agendar Demo</a>
+      <button type="button" class="btn btn-primary js-open-demo-modal">Agendar Demo</button>
     </div>
     <button class="menu-toggle" aria-label="Abrir menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -308,9 +329,9 @@
         <h1 id="hero-h1">Tu CRM de Post-Venta B2B, con <mark>WhatsApp</mark> Adentro</h1>
         <p class="hero-sub">Deja de usar tu CRM de ventas para gestionar clientes que ya cerraron. LealUp une CRM y CSM en una sola plataforma: WhatsApp Business nativo, ficha 360 de cada cuenta y alertas de churn calculadas con IA.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary btn-lg" href="#demo">Agendar Demo
+          <button type="button" class="btn btn-primary btn-lg js-open-demo-modal">Agendar Demo
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          </button>
           <a class="hero-secondary-link" href="#producto">Ver cómo funciona el CRM →</a>
         </div>
         <div class="hero-trust">
@@ -491,9 +512,9 @@
       <h2 id="final-h" style="margin-top:14px">Deja de perder clientes por falta de seguimiento</h2>
       <p>Agenda una demo de 20 minutos. Sin tarjeta de crédito, sin instalaciones: te mostramos LealUp funcionando con tus propios casos de post-venta.</p>
       <div class="final-ctas">
-        <a class="btn btn-primary btn-lg" href="#agendar">Agendar Demo
+        <button type="button" class="btn btn-primary btn-lg js-open-demo-modal">Agendar Demo
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        </button>
         <a class="btn btn-ghost-dark btn-lg" href="#whatsapp-cta">Escríbenos por WhatsApp</a>
       </div>
       <p class="final-note">O usa el botón de WhatsApp en la esquina inferior — te responde un humano, no un bot.</p>
@@ -540,12 +561,121 @@
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.52 3.66 1.42 5.18L2 22l4.94-1.38A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18a7.9 7.9 0 01-4.03-1.1l-.29-.17-3 .84.8-2.94-.19-.3A7.93 7.93 0 1120 12a8 8 0 01-8 8z"/></svg>
 </a>
 
+<div class="demo-modal-overlay" id="demoModalOverlay">
+  <div class="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+    <button class="demo-modal-close" type="button" id="demoModalClose" aria-label="Cerrar">✕</button>
+    <div id="demoModalFormWrap">
+      <h3 id="demoModalTitle">Agenda tu demo</h3>
+      <p class="sub">20 minutos, sin tarjeta de crédito. Te contactamos para coordinar el horario.</p>
+      <form id="demoModalForm" novalidate>
+        <input type="text" name="website" class="demo-hp" tabindex="-1" autocomplete="off">
+        <div class="demo-field"><label for="dmCompany">Empresa *</label><input id="dmCompany" name="company" type="text" required></div>
+        <div class="demo-field"><label for="dmName">Nombre</label><input id="dmName" name="name" type="text"></div>
+        <div class="demo-field"><label for="dmEmail">Email *</label><input id="dmEmail" name="email" type="email" required></div>
+        <div class="demo-field"><label for="dmPhone">Teléfono</label><input id="dmPhone" name="phone" type="tel"></div>
+        <div class="demo-field"><label for="dmMessage">Mensaje</label><textarea id="dmMessage" name="message"></textarea></div>
+        <button type="submit" class="btn btn-primary demo-submit">Enviar</button>
+        <p class="demo-msg" id="demoModalMsg"></p>
+      </form>
+    </div>
+    <div class="demo-success" id="demoModalSuccess">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+      <h3>¡Listo!</h3>
+      <p class="sub">Te contactamos en menos de 24 h para coordinar el horario.</p>
+    </div>
+  </div>
+</div>
+
 <script>
   (function(){
     var header = document.getElementById('siteHeader');
     window.addEventListener('scroll', function(){
       header.classList.toggle('solid', window.scrollY > 8);
     }, {passive:true});
+  })();
+
+  (function(){
+    var LEAD_RELAY_URL = 'https://demo-booking-sync-bot-development.up.railway.app/submit-lead';
+    var SOURCE = 'crm-posventa';
+
+    var overlay = document.getElementById('demoModalOverlay');
+    var closeBtn = document.getElementById('demoModalClose');
+    var form = document.getElementById('demoModalForm');
+    var msg = document.getElementById('demoModalMsg');
+    var formWrap = document.getElementById('demoModalFormWrap');
+    var success = document.getElementById('demoModalSuccess');
+    var submitBtn = form.querySelector('.demo-submit');
+
+    function resetSubmit(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar';
+    }
+
+    function openModal(e){
+      if (e) e.preventDefault();
+      overlay.classList.add('is-open');
+      formWrap.style.display = '';
+      success.classList.remove('is-open');
+      form.reset();
+      msg.className = 'demo-msg';
+      msg.textContent = '';
+      resetSubmit();
+      document.getElementById('dmCompany').focus();
+    }
+    function closeModal(){
+      overlay.classList.remove('is-open');
+    }
+
+    document.querySelectorAll('.js-open-demo-modal').forEach(function(btn){
+      btn.addEventListener('click', openModal);
+    });
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = {
+        company: form.company.value.trim(),
+        email: form.email.value.trim(),
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        message: form.message.value.trim(),
+        website: form.website.value,
+        source: SOURCE
+      };
+      if (!data.company || !data.email) {
+        msg.className = 'demo-msg is-error';
+        msg.textContent = 'Empresa y email son obligatorios.';
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando…';
+      msg.className = 'demo-msg';
+      msg.textContent = '';
+
+      fetch(LEAD_RELAY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function(res){ return res.json().catch(function(){ return {}; }).then(function(body){ return { ok: res.ok, body: body }; }); })
+        .then(function(r){
+          if (r.ok && r.body.ok) {
+            formWrap.style.display = 'none';
+            success.classList.add('is-open');
+          } else {
+            resetSubmit();
+            msg.className = 'demo-msg is-error';
+            msg.textContent = (r.body && r.body.error) || 'No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+          }
+        })
+        .catch(function(){
+          resetSubmit();
+          msg.className = 'demo-msg is-error';
+          msg.textContent = 'No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+        });
+    });
   })();
 </script>
 
