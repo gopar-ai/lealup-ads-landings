@@ -257,13 +257,12 @@
   .wa-float:hover{transform:scale(1.06)}
   .wa-float svg{width:26px;height:26px}
 
-  /* ============ DEMO MODAL ============ */
-  .demo-modal-overlay{position:fixed; inset:0; z-index:300; background:rgba(13,20,25,.72); display:flex; align-items:center; justify-content:center; padding:20px; opacity:0; pointer-events:none; transition:opacity .18s ease}
-  .demo-modal-overlay.is-open{opacity:1; pointer-events:auto}
-  .demo-modal{background:var(--panel); border-radius:var(--radius-lg); max-width:440px; width:100%; padding:30px 28px; position:relative; box-shadow:0 40px 90px -20px rgba(0,0,0,.5); max-height:90vh; overflow:auto}
-  .demo-modal h3{font-size:20px; margin-bottom:6px}
-  .demo-modal .sub{font-size:13.5px; color:var(--muted); margin-bottom:20px; line-height:1.5}
-  .demo-modal-close{position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:50%; border:0; background:var(--panel-2); color:var(--muted); display:grid; place-items:center; cursor:pointer; font-size:15px}
+  /* ============ CONTACTO INLINE ============ */
+  .contact-inline{background:var(--panel); border-top:1px solid var(--line)}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start}
+  .contact-form-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); padding:28px}
+  .demo-success h3{font-size:18px; margin-bottom:6px}
+  .demo-success .sub{font-size:13.5px; color:var(--muted); line-height:1.5}
   .demo-field{display:flex; flex-direction:column; gap:5px; margin-bottom:14px}
   .demo-field label{font-size:12px; font-weight:600; color:var(--ink)}
   .demo-field input,.demo-field textarea{border:1.5px solid var(--line); border-radius:8px; padding:10px 12px; font:inherit; font-size:14px; color:var(--ink); background:var(--panel)}
@@ -287,6 +286,7 @@
     .float-badge{display:none}
     .feat-grid{grid-template-columns:1fr}
     .comp-grid{grid-template-columns:1fr; gap:36px}
+    .contact-grid{grid-template-columns:1fr; gap:28px}
     .foot-grid{grid-template-columns:1fr 1fr; gap:28px 20px}
   }
   @media(max-width:640px){
@@ -311,7 +311,7 @@
       <a href="https://docs.lealup.com">Recursos</a>
     </nav>
     <div class="header-actions">
-      <button type="button" class="btn btn-primary js-open-demo-modal">Agendar Demo</button>
+      <a class="btn btn-primary" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N6Yx8Pkt9KiGpw9YICRDwxGd3lrKg6c3KvFlbBO6askILb3SCOo9Wgo6Kb9VfNEEUgFiwoKvG" target="_blank" rel="noopener noreferrer">Agendar Demo</a>
     </div>
     <button class="menu-toggle" aria-label="Abrir menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -329,10 +329,10 @@
         <h1 id="hero-h1">Tu CRM de Post-Venta B2B, con <mark>WhatsApp</mark> Adentro</h1>
         <p class="hero-sub">Deja de usar tu CRM de ventas para gestionar clientes que ya cerraron. LealUp une CRM y CSM en una sola plataforma: WhatsApp Business nativo, ficha 360 de cada cuenta y alertas de churn calculadas con IA.</p>
         <div class="hero-ctas">
-          <button type="button" class="btn btn-primary btn-lg js-open-demo-modal">Agendar Demo
+          <a class="btn btn-primary btn-lg" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N6Yx8Pkt9KiGpw9YICRDwxGd3lrKg6c3KvFlbBO6askILb3SCOo9Wgo6Kb9VfNEEUgFiwoKvG" target="_blank" rel="noopener noreferrer">Agendar Demo
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <a class="hero-secondary-link" href="#producto">Ver cómo funciona el CRM →</a>
+          </a>
+          <a class="hero-secondary-link" href="#contacto">Prefiero que me contacten →</a>
         </div>
         <div class="hero-trust">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Sin tarjeta de crédito</span>
@@ -505,6 +505,35 @@
     </div>
   </section>
 
+  <!-- ============ CONTACTO INLINE ============ -->
+  <section class="section contact-inline" id="contacto" aria-labelledby="contact-h">
+    <div class="wrap contact-grid">
+      <div class="section-head" style="margin-bottom:0">
+        <h2 id="contact-h">¿Prefieres que te contactemos nosotros?</h2>
+        <p>Sin comprometerte a elegir un horario ahora mismo: déjanos tus datos y te escribimos para coordinarlo.</p>
+      </div>
+      <div class="contact-form-card">
+        <div id="contactFormWrap">
+          <form id="contactForm" novalidate>
+            <input type="text" name="website" class="demo-hp" tabindex="-1" autocomplete="off">
+            <div class="demo-field"><label for="cfCompany">Empresa *</label><input id="cfCompany" name="company" type="text" required></div>
+            <div class="demo-field"><label for="cfName">Nombre</label><input id="cfName" name="name" type="text"></div>
+            <div class="demo-field"><label for="cfEmail">Email *</label><input id="cfEmail" name="email" type="email" required></div>
+            <div class="demo-field"><label for="cfPhone">Teléfono</label><input id="cfPhone" name="phone" type="tel"></div>
+            <div class="demo-field"><label for="cfMessage">Mensaje</label><textarea id="cfMessage" name="message"></textarea></div>
+            <button type="submit" class="btn btn-primary demo-submit">Quiero que me contacten</button>
+            <p class="demo-msg" id="contactMsg"></p>
+          </form>
+        </div>
+        <div class="demo-success" id="contactSuccess">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <h3>¡Listo!</h3>
+          <p class="sub">Te contactamos en menos de 24 h.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CTA FINAL ============ -->
   <section class="final" id="demo" aria-labelledby="final-h">
     <div class="wrap final-in">
@@ -512,10 +541,10 @@
       <h2 id="final-h" style="margin-top:14px">Deja de perder clientes por falta de seguimiento</h2>
       <p>Agenda una demo de 20 minutos. Sin tarjeta de crédito, sin instalaciones: te mostramos LealUp funcionando con tus propios casos de post-venta.</p>
       <div class="final-ctas">
-        <button type="button" class="btn btn-primary btn-lg js-open-demo-modal">Agendar Demo
+        <a class="btn btn-primary btn-lg" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N6Yx8Pkt9KiGpw9YICRDwxGd3lrKg6c3KvFlbBO6askILb3SCOo9Wgo6Kb9VfNEEUgFiwoKvG" target="_blank" rel="noopener noreferrer">Agendar Demo
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-        <a class="btn btn-ghost-dark btn-lg" href="#whatsapp-cta">Escríbenos por WhatsApp</a>
+        </a>
+        <a class="btn btn-ghost-dark btn-lg" href="https://wa.me/56994446153?text=Hola%2C%20vengo%20de%20LealUp" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
       </div>
       <p class="final-note">O usa el botón de WhatsApp en la esquina inferior — te responde un humano, no un bot.</p>
     </div>
@@ -554,34 +583,9 @@
   </div>
 </footer>
 
-<a class="wa-float" id="waFloat" href="#whatsapp-cta" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
+<a class="wa-float" id="waFloat" href="https://wa.me/56994446153?text=Hola%2C%20vengo%20de%20LealUp" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.52 3.66 1.42 5.18L2 22l4.94-1.38A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18a7.9 7.9 0 01-4.03-1.1l-.29-.17-3 .84.8-2.94-.19-.3A7.93 7.93 0 1120 12a8 8 0 01-8 8z"/></svg>
 </a>
-
-<div class="demo-modal-overlay" id="demoModalOverlay">
-  <div class="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
-    <button class="demo-modal-close" type="button" id="demoModalClose" aria-label="Cerrar">✕</button>
-    <div id="demoModalFormWrap">
-      <h3 id="demoModalTitle">Agenda tu demo</h3>
-      <p class="sub">20 minutos, sin tarjeta de crédito. Te contactamos para coordinar el horario.</p>
-      <form id="demoModalForm" novalidate>
-        <input type="text" name="website" class="demo-hp" tabindex="-1" autocomplete="off">
-        <div class="demo-field"><label for="dmCompany">Empresa *</label><input id="dmCompany" name="company" type="text" required></div>
-        <div class="demo-field"><label for="dmName">Nombre</label><input id="dmName" name="name" type="text"></div>
-        <div class="demo-field"><label for="dmEmail">Email *</label><input id="dmEmail" name="email" type="email" required></div>
-        <div class="demo-field"><label for="dmPhone">Teléfono</label><input id="dmPhone" name="phone" type="tel"></div>
-        <div class="demo-field"><label for="dmMessage">Mensaje</label><textarea id="dmMessage" name="message"></textarea></div>
-        <button type="submit" class="btn btn-primary demo-submit">Enviar</button>
-        <p class="demo-msg" id="demoModalMsg"></p>
-      </form>
-    </div>
-    <div class="demo-success" id="demoModalSuccess">
-      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-      <h3>¡Listo!</h3>
-      <p class="sub">Te contactamos en menos de 24 h para coordinar el horario.</p>
-    </div>
-  </div>
-</div>
 
 <script>
   (function(){
@@ -595,40 +599,16 @@
     var LEAD_RELAY_URL = 'https://demo-booking-sync-bot-development.up.railway.app/submit-lead';
     var SOURCE = 'crm-posventa';
 
-    var overlay = document.getElementById('demoModalOverlay');
-    var closeBtn = document.getElementById('demoModalClose');
-    var form = document.getElementById('demoModalForm');
-    var msg = document.getElementById('demoModalMsg');
-    var formWrap = document.getElementById('demoModalFormWrap');
-    var success = document.getElementById('demoModalSuccess');
+    var form = document.getElementById('contactForm');
+    var msg = document.getElementById('contactMsg');
+    var formWrap = document.getElementById('contactFormWrap');
+    var success = document.getElementById('contactSuccess');
     var submitBtn = form.querySelector('.demo-submit');
 
     function resetSubmit(){
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar';
+      submitBtn.textContent = 'Quiero que me contacten';
     }
-
-    function openModal(e){
-      if (e) e.preventDefault();
-      overlay.classList.add('is-open');
-      formWrap.style.display = '';
-      success.classList.remove('is-open');
-      form.reset();
-      msg.className = 'demo-msg';
-      msg.textContent = '';
-      resetSubmit();
-      document.getElementById('dmCompany').focus();
-    }
-    function closeModal(){
-      overlay.classList.remove('is-open');
-    }
-
-    document.querySelectorAll('.js-open-demo-modal').forEach(function(btn){
-      btn.addEventListener('click', openModal);
-    });
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
