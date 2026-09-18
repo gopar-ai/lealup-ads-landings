@@ -311,7 +311,7 @@
       <a href="https://docs.lealup.com">Recursos</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N6Yx8Pkt9KiGpw9YICRDwxGd3lrKg6c3KvFlbBO6askILb3SCOo9Wgo6Kb9VfNEEUgFiwoKvG" target="_blank" rel="noopener noreferrer">Agendar Demo</a>
+      <button class="btn btn-primary" type="button" data-cal-link="camilo-rodriguez-lealup/demo-lealup" data-cal-namespace="demo-lealup" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Agendar Demo</button>
     </div>
     <button class="menu-toggle" aria-label="Abrir menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -329,9 +329,9 @@
         <h1 id="hero-h1">Tu CRM de Post-Venta B2B, con <mark>WhatsApp</mark> Adentro</h1>
         <p class="hero-sub">Deja de usar tu CRM de ventas para gestionar clientes que ya cerraron. LealUp une CRM y CSM en una sola plataforma: WhatsApp Business nativo, ficha 360 de cada cuenta y alertas de churn calculadas con IA.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary btn-lg" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N6Yx8Pkt9KiGpw9YICRDwxGd3lrKg6c3KvFlbBO6askILb3SCOo9Wgo6Kb9VfNEEUgFiwoKvG" target="_blank" rel="noopener noreferrer">Agendar Demo
+          <button class="btn btn-primary btn-lg" type="button" data-cal-link="camilo-rodriguez-lealup/demo-lealup" data-cal-namespace="demo-lealup" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Agendar Demo
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          </button>
           <a class="hero-secondary-link" href="#contacto">Prefiero que me contacten →</a>
         </div>
         <div class="hero-trust">
@@ -541,9 +541,9 @@
       <h2 id="final-h" style="margin-top:14px">Deja de perder clientes por falta de seguimiento</h2>
       <p>Agenda una demo de 20 minutos. Sin tarjeta de crédito, sin instalaciones: te mostramos LealUp funcionando con tus propios casos de post-venta.</p>
       <div class="final-ctas">
-        <a class="btn btn-primary btn-lg" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0N6Yx8Pkt9KiGpw9YICRDwxGd3lrKg6c3KvFlbBO6askILb3SCOo9Wgo6Kb9VfNEEUgFiwoKvG" target="_blank" rel="noopener noreferrer">Agendar Demo
+        <button class="btn btn-primary btn-lg" type="button" data-cal-link="camilo-rodriguez-lealup/demo-lealup" data-cal-namespace="demo-lealup" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Agendar Demo
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        </button>
         <a class="btn btn-ghost-dark btn-lg" href="https://wa.me/56994446153?text=Hola%2C%20vengo%20de%20LealUp" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
       </div>
       <p class="final-note">O usa el botón de WhatsApp en la esquina inferior — te responde un humano, no un bot.</p>
@@ -655,6 +655,14 @@
     });
   })();
 </script>
+
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "demo-lealup", {origin:"https://app.cal.com"});
+  Cal.ns["demo-lealup"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+<!-- Cal element-click embed code ends -->
 
 </body>
 </html>
